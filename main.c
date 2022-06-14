@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekeen-wy <ekeen-wy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:07:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/13 18:13:53 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/14 13:31:51 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,23 @@ static int	*create_array(int n)
 	int	*copy;
 
 	copy = (int *)malloc(sizeof(int) * n);
+	if (copy == NULL)
+		p_error(1);
 	return (copy);
 }
 
 static void	p_error(int code)
 {
 	if (code == 0)
+	{
 		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	else if (code == 1)
+	{
+		ft_putstr_fd("Malloc error\n", 2);
+		exit(EXIT_FAILURE);
+	}
 }
 
 static int	isnumber(char *str)
@@ -44,7 +54,7 @@ static int	isnumber(char *str)
 	return (0);
 }
 
-static int isdup(int *n, size_t len)
+static int	isdup(int *n, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -65,6 +75,11 @@ static int isdup(int *n, size_t len)
 	return (0);
 }
 
+/*
+Remember to fix the atoi to handle max and min integer conversions. 
+I can check what I did using my printf.
+*/
+
 int	main(int argc, char **argv)
 {
 	int		*array_in;
@@ -77,17 +92,9 @@ int	main(int argc, char **argv)
 	while (argv[i] != NULL)
 	{
 		if (isnumber(argv[i]))
-		{
 			p_error(0);
-			printf("1\n");
-			return (1);
-		}
 		else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
-		{
 			p_error(0);
-			printf("2\n");
-			return (1);
-		}
 		else
 			array_in[i - 1] = ft_atoi(argv[i]);
 		i++;
