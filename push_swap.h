@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/14 14:36:35 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/14 21:39:25 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,18 @@
 # define NO 0
 
 typedef struct d_linked_list {
-	int		content;
-	int		tail;
-	void	*prev;
-	void	*next;
+	int						content;
+	int						tail;
+	struct d_linked_list	*next;
 }	t_list;
 
+typedef struct stack {
+	int		counter;
+	t_list	*stack;
+}	t_stack_info;
+
+/*s_ops.c*/
+void	sa(t_stack_info *stack_info, int show);
+void	sb(t_stack_info *stack_info, int show);
+void	ss(t_stack_info *stack_info, int show);
 #endif
