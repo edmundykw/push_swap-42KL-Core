@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:28:46 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 12:10:50 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:44:33 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	sa(t_stack_info *stack_info, int show)
 			temp -> next = top;
 			stack_info -> stack_a = temp;
 		}
+		else
+			return (0);
 	}
 	else
 		return (0);
@@ -56,6 +58,8 @@ int	sb(t_stack_info *stack_info, int show)
 			temp -> next = top;
 			stack_info -> stack_b = temp;
 		}
+		else
+			return (0);
 	}
 	else
 		return (0);

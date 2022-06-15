@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r_ops.c                                            :+:      :+:    :+:   */
+/*   r_ab_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:13:59 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 13:12:20 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:37:43 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ The first element becomes the last one. */
 
 int	ra(t_stack_info *stack_info, int show)
 {
-	t_list	*top;
 	t_list	*temp;
 
-	top = stack_info -> stack_a;
-	temp = top -> next;
-	if (top != NULL)
+	temp = stack_info -> stack_a -> next;
+	if (stack_info -> stack_a != NULL)
 	{
-		ft_lstadd_back(&top, top);
+		ft_lstadd_back(&stack_info -> stack_a, stack_info -> stack_a);
 		stack_info -> stack_a = temp;
 	}
 	else
@@ -39,14 +37,12 @@ The first element becomes the last one. */
 
 int	rb(t_stack_info *stack_info, int show)
 {
-	t_list	*top;
 	t_list	*temp;
 
-	top = stack_info -> stack_b;
-	temp = top -> next;
-	if (top != NULL)
+	temp = stack_info -> stack_b -> next;
+	if (stack_info -> stack_b != NULL)
 	{
-		ft_lstadd_back(&top, top);
+		ft_lstadd_back(&stack_info -> stack_b, stack_info -> stack_b);
 		stack_info -> stack_b = temp;
 	}
 	else
