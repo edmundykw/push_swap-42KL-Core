@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/14 21:46:27 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/15 11:55:17 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct stack {
 }	t_stack_info;
 
 /*s_ops.c*/
-void	sa(t_stack_info *stack_info, int show);
-void	sb(t_stack_info *stack_info, int show);
-void	ss(t_stack_info *stack_info, int show);
+int	sa(t_stack_info *stack_info, int show);
+int	sb(t_stack_info *stack_info, int show);
+int	ss(t_stack_info *stack_info, int show);
 #endif
