@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:13:56 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 16:58:43 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:02:14 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,41 @@ int	rra(t_stack_info *stack_info, int show)
 	if (show)
 		printf("rra\n");
 	return (1);
+}
+
+/* Shift down all elements of stack b by 1.
+The last element becomes the first one. */
+
+int	rrb(t_stack_info *stack_info, int show)
+{
+	t_list	*temp;
+	t_list	*temp_2;
+
+	temp = ft_lstlast(stack_info -> stack_b);
+	temp_2 = ft_lstseclast(stack_info -> stack_b);
+	if (stack_info -> stack_b != NULL)
+	{
+		ft_lstadd_front(&stack_info -> stack_b, temp);
+		temp_2 -> next = NULL;
+	}
+	else
+		return (0);
+	if (show)
+		printf("rrb\n");
+	return (1);
+}
+
+int	rrr(t_stack_info *stack_info, int show)
+{
+	int	i;
+	int	j;
+
+	i = rra(stack_info, 0);
+	j = rrb(stack_info, 0);
+	if (show && i && j)
+	{
+		ft_putstr_fd("rrr\n", 1);
+		return (1);
+	}
+	return (0);
 }
