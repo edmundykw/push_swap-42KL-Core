@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 16:54:51 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:07:01 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,15 @@ int		ss(t_stack_info *stack_info, int show);
 void	pa(t_stack_info *stack_info, int show);
 void	pb(t_stack_info *stack_info, int show);
 
-/* r_ops.c */
+/* r_ab_ops.c */
 int		ra(t_stack_info *stack_info, int show);
 int		rb(t_stack_info *stack_info, int show);
 int		rr(t_stack_info *stack_info, int show);
+
+/* rr_ab_ops.c */
+int		rra(t_stack_info *stack_info, int show);
+int		rrb(t_stack_info *stack_info, int show);
+int		rrr(t_stack_info *stack_info, int show);
 
 /* utils_1.c */
 t_list	*ft_lstlast(t_list *lst);
