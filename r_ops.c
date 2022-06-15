@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:13:59 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 12:55:05 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:12:20 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,43 @@ int	ra(t_stack_info *stack_info, int show)
 	else
 		return (0);
 	if (show)
-		ft_putstr_fd("sa\n", 1);
+		ft_putstr_fd("ra\n", 1);
 	return (1);
+}
+
+/* Shift up all elements of stack b by 1.
+The first element becomes the last one. */
+
+int	rb(t_stack_info *stack_info, int show)
+{
+	t_list	*top;
+	t_list	*temp;
+
+	top = stack_info -> stack_b;
+	temp = top -> next;
+	if (top != NULL)
+	{
+		ft_lstadd_back(&top, top);
+		stack_info -> stack_b = temp;
+	}
+	else
+		return (0);
+	if (show)
+		ft_putstr_fd("rb\n", 1);
+	return (1);
+}
+
+int	rr(t_stack_info *stack_info, int show)
+{
+	int	i;
+	int	j;
+
+	i = ra(stack_info, 0);
+	j = rb(stack_info, 0);
+	if (show && i && j)
+	{
+		ft_putstr_fd("rr\n", 1);
+		return (1);
+	}
+	return (0);
 }
