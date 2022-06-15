@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/14 21:39:25 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/14 21:46:27 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ typedef struct d_linked_list {
 }	t_list;
 
 typedef struct stack {
-	int		counter;
-	t_list	*stack;
+	int		counter_a;
+	int		counter_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 }	t_stack_info;
 
 /*s_ops.c*/
