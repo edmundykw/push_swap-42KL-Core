@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:13:08 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 17:10:21 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/16 22:57:31 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,19 @@ t_list	*ft_lstseclast(t_list *lst)
 		ptr = ptr -> next;
 	}
 	return (ptr);
+}
+
+/* creates a new node */
+
+t_list	*ft_lstnew(int content)
+{
+	t_list	*node;
+
+	node = (t_list *)malloc(sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node -> content = content;
+	node -> tail = NO;
+	node -> next = NULL;
+	return (node);
 }

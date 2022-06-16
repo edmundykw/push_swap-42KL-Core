@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:13:56 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 17:02:14 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:10:08 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	rra(t_stack_info *stack_info, int show)
 	else
 		return (0);
 	if (show)
-		printf("rra\n");
+		ft_putstr_fd("rra\n", 1);
 	return (1);
 }
 
@@ -52,7 +52,7 @@ int	rrb(t_stack_info *stack_info, int show)
 	else
 		return (0);
 	if (show)
-		printf("rrb\n");
+		ft_putstr_fd("rrb\n", 1);
 	return (1);
 }
 

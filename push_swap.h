@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 17:07:01 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/16 22:58:22 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct d_linked_list {
 typedef struct stack {
 	int		counter_a;
 	int		counter_b;
+	int		*array_in;
+	int		*array_sorted;
+	int		array_size;
 	t_list	*stack_a;
 	t_list	*stack_b;
 }	t_stack_info;
@@ -58,4 +61,14 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstseclast(t_list *lst);
+t_list	*ft_lstnew(int content);
+
+/* error_check.c */
+void	p_error(int code);
+int	isnumber(char *str);
+int	isdup(int *n, size_t len);
+
+void	bubblesort(int *arr, size_t size);
+
+void	push_swap(t_stack_info *stack_i);
 #endif

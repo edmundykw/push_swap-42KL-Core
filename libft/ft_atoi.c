@@ -6,16 +6,16 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:46:52 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/02/10 14:51:08 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/16 19:42:42 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {	
-	int	sign;
-	int	base_conv;
+	int			sign;
+	long int	base_conv;
 
 	sign = 1;
 	base_conv = 0;
