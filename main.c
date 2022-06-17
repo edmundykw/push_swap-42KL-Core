@@ -6,12 +6,18 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:07:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/16 23:13:16 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/17 10:46:48 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+static void	free_mem(t_stack_info *stack_i)
+{
+	free(stack_i->array_in);
+	free(stack_i->array_sorted);
+}
 
 static int	*create_array(int n)
 {
@@ -32,7 +38,8 @@ static void	init_array(t_stack_info *stack_i, int argc)
 
 static void	init_stack(t_stack_info *stack_i)
 {
-	int	temp;
+	int		temp;
+	t_list	*new;
 
 	stack_i->counter_a = 0;
 	stack_i->counter_b = 0;
@@ -40,22 +47,15 @@ static void	init_stack(t_stack_info *stack_i)
 	stack_i->stack_b = NULL;
 	temp = 0;
 	while (temp < stack_i->array_size)
-		ft_lstadd_back(&stack_i->stack_a, ft_lstnew(stack_i->array_in[temp++]));
-}
-
-/*
-Check if it's already arranged then no need to run the sorting.
-*/
-static void	print(t_stack_info *stack_i)
-{
-	t_list	*tempnode;
-	t_list	*lst;
-	lst = stack_i->stack_a;
-	while (lst != NULL)
 	{
-		tempnode = lst;
-		printf("%d\n", tempnode->content);
-		lst = tempnode -> next;
+		new = ft_lstnew(stack_i->array_in[temp++]);
+		if (new == NULL)
+		{
+			free_mem(stack_i);
+			ft_lstclear(&stack_i->stack_a);
+			p_error(1);
+		}
+		ft_lstadd_back(&stack_i->stack_a, new);
 	}
 }
 
@@ -65,24 +65,20 @@ int	main(int argc, char **argv)
 	size_t			i;
 
 	if (argc < 2)
-	{
 		p_error(0);
-		ft_putstr_fd("I am the culprit\n", 1);
-	}
 	init_array(&stack_i, argc);
+	if (!bubblesort(stack_i.array_sorted, stack_i.array_size))
+	{
+		free_mem(&stack_i);
+		return ;
+	}
 	i = 1;
 	while (argv[i] != NULL)
 	{
 		if (isnumber(argv[i]))
-		{
 			p_error(0);
-			ft_putstr_fd("It's me 1\n", 1);
-		}
 		else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
-		{
 			p_error(0);
-			ft_putstr_fd("It's me 2\n", 1);
-		}
 		else
 		{
 			stack_i.array_in[i - 1] = ft_atoi(argv[i]);
@@ -92,8 +88,8 @@ int	main(int argc, char **argv)
 	}
 	if (isdup(stack_i.array_in, argc - 1))
 	{
+		free_mem(&stack_i);
 		p_error(0);
-		ft_putstr_fd("It's a dup\n", 1);
 	}
 	init_stack(&stack_i);
 	push_swap(&stack_i);

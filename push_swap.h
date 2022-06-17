@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/16 22:58:22 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/17 10:47:25 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,17 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstseclast(t_list *lst);
 t_list	*ft_lstnew(int content);
 
+/* utils_2.c */
+void	ft_lstclear(t_list **lst);
+
 /* error_check.c */
 void	p_error(int code);
-int	isnumber(char *str);
-int	isdup(int *n, size_t len);
+int		isnumber(char *str);
+int		isdup(int *n, size_t len);
 
-void	bubblesort(int *arr, size_t size);
+/* bubblesort.c */
+int		bubblesort(int *arr, size_t size);
 
+/* push_swap.c */
 void	push_swap(t_stack_info *stack_i);
 #endif

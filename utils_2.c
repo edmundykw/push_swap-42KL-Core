@@ -1,47 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bubblesort.c                                       :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 14:09:38 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 10:13:54 by ekeen-wy         ###   ########.fr       */
+/*   Created: 2022/06/17 10:27:52 by ekeen-wy          #+#    #+#             */
+/*   Updated: 2022/06/17 10:42:19 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(int* i, int* j)
+void	ft_lstclear(t_list **lst)
 {
-    int temp;
-	
-	temp = *i;
-    *i = *j;
-    *j = temp;
-}
+	t_list	*tempnode;
 
-int	bubblesort(int *arr, size_t size)
-{
-    int		i;
-	int		j;
-	int		swapped;
-
-	i = 0;
-	swapped = 0;
-    while ( i < size - 1)
+	while (*lst != NULL)
 	{
-		j = 0;
-        while (j < size - 1)
-		{
-            if (arr[j] > arr[j + 1])
-			{
-                swap(&arr[j], &arr[j + 1]);
-				swapped = 1;
-			}
-			j++;
-		}
-		i++;
+		tempnode = *lst;
+		*lst = tempnode -> next;
+		free(tempnode);
 	}
-	return (swapped)
+	*lst = NULL;
 }
