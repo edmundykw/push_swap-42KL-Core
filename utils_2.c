@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:27:52 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 10:42:19 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/17 10:58:50 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,10 @@ void	ft_lstclear(t_list **lst)
 		free(tempnode);
 	}
 	*lst = NULL;
+}
+
+void	free_mem(t_stack_info *stack_i)
+{
+	free(stack_i->array_in);
+	free(stack_i->array_sorted);
 }

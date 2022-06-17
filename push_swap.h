@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 10:47:25 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/17 11:19:02 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "libft/libft.h"
+# include <stdio.h>
 # define YES 1
 # define NO 0
 
@@ -65,6 +66,7 @@ t_list	*ft_lstnew(int content);
 
 /* utils_2.c */
 void	ft_lstclear(t_list **lst);
+void	free_mem(t_stack_info *stack_i);
 
 /* error_check.c */
 void	p_error(int code);

@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:56:54 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/16 18:23:32 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/17 11:01:41 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	p_error(int code)
 	if (code == 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		//exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	else if (code == 1)
 	{
 		ft_putstr_fd("Malloc error\n", 2);
-		//exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 }
 
