@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:07:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 12:11:00 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/17 22:03:59 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void	init_stack(t_stack_info *stack_i)
 	stack_i->counter_b = 0;
 	stack_i->stack_a = NULL;
 	stack_i->stack_b = NULL;
+	stack_i->steps[TOP] = 0;
+	stack_i->steps[BOTTOM] = 0;
 	temp = 0;
 	while (temp < stack_i->array_size)
 	{

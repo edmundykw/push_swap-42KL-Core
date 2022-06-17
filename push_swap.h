@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 11:19:02 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/17 22:03:31 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdio.h>
 # define YES 1
 # define NO 0
+# define TOP 0
+# define BOTTOM 1
 
 typedef struct d_linked_list {
 	int						content;
@@ -34,6 +36,7 @@ typedef struct stack {
 	int		*array_in;
 	int		*array_sorted;
 	int		array_size;
+	int		steps[2];
 	t_list	*stack_a;
 	t_list	*stack_b;
 }	t_stack_info;
@@ -78,4 +81,7 @@ int		bubblesort(int *arr, size_t size);
 
 /* push_swap.c */
 void	push_swap(t_stack_info *stack_i);
+
+/* sort_small.c */
+void	sort_three(t_stack_info *stack_i);
 #endif
