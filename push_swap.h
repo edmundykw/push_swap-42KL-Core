@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 22:03:31 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/18 22:01:07 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ t_list	*ft_lstnew(int content);
 /* utils_2.c */
 void	ft_lstclear(t_list **lst);
 void	free_mem(t_stack_info *stack_i);
+void	check_min(t_stack_info *stack_i);
 
 /* error_check.c */
 void	p_error(int code);
@@ -84,4 +85,9 @@ void	push_swap(t_stack_info *stack_i);
 
 /* sort_small.c */
 void	sort_three(t_stack_info *stack_i);
+void	sort_five(t_stack_info *stack_i);
+
+/* stack_ops.c */
+void	push_top(t_stack_info *stack_i);
+void	push_bottom(t_stack_info *stack_i);
 #endif

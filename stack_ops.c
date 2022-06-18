@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 15:48:13 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/18 22:08:44 by ekeen-wy         ###   ########.fr       */
+/*   Created: 2022/06/18 21:58:45 by ekeen-wy          #+#    #+#             */
+/*   Updated: 2022/06/18 22:07:44 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print(t_stack_info *stack_i)
+void	push_top(t_stack_info *stack_i)
 {
-	t_list	*tempnode;
-	t_list	*lst;
-
-	lst = stack_i->stack_a;
-	while (lst != NULL)
+	while (stack_i -> steps[TOP] - 1 > 0)
 	{
-		tempnode = lst;
-		printf("%d\n", tempnode->content);
-		lst = tempnode -> next;
+		ra(stack_i, 1);
+		stack_i -> steps[TOP]--;
 	}
 }
 
-void	push_swap(t_stack_info *stack_i)
+void	push_bottom(t_stack_info *stack_i)
 {
-	if (stack_i->array_size == 3)
-		sort_three(stack_i);
-	if (stack_i->array_size == 5)
-		sort_five(stack_i);
+	while (stack_i -> steps[BOTTOM] > 0)
+	{
+		rra(stack_i, 1);
+		stack_i -> steps[BOTTOM]--;
+	}
 }

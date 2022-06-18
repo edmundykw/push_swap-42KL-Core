@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 21:41:07 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/15 11:48:42 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/18 20:18:12 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	pa(t_stack_info *stack_info, int show)
 
 	top_a = stack_info -> stack_a;
 	top_b = stack_info -> stack_b;
-	temp_b = top_b -> next;
 	if (top_b != NULL)
 	{
+		temp_b = top_b -> next;
 		top_b -> next = top_a;
 		stack_info -> stack_a = top_b;
 		stack_info -> stack_b = temp_b;
@@ -47,9 +47,9 @@ void	pb(t_stack_info *stack_info, int show)
 
 	top_a = stack_info -> stack_a;
 	top_b = stack_info -> stack_b;
-	temp_a = top_a -> next;
 	if (top_a != NULL)
 	{
+		temp_a = top_a -> next;
 		top_a -> next = top_b;
 		stack_info -> stack_b = top_a;
 		stack_info -> stack_a = temp_a;

@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:06:28 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 22:03:49 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/18 22:02:37 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	sort_three(t_stack_info *stack_i)
 {
-	int	n1;
-	int	n2;
-	int	n3;
+	t_list	*temp;
+	int		n1;
+	int		n2;
+	int		n3;
 
-	n1 = stack_i->array_in[0];
-	n2 = stack_i->array_in[1];
-	n3 = stack_i->array_in[2];
+	temp = stack_i->stack_a;
+	n1 = temp->content;
+	n2 = temp->next->content;
+	n3 = temp->next->next->content;
 	if (n1 > n2 && n2 < n3 && n3 > n1)
 		sa(stack_i, 1);
 	else if (n1 > n2 && n2 > n3 && n1 > n3)
@@ -35,30 +37,27 @@ void	sort_three(t_stack_info *stack_i)
 		sa(stack_i, 1);
 		ra(stack_i, 1);
 	}
-	else
+	else if (n1 < n2 && n2 > n3 && n1 > n3)
 		rra(stack_i, 1);
 }
 
 void	sort_five(t_stack_info *stack_i)
 {
 	size_t	i;
-	t_list	*temp_b;
-	t_list	*temp_a;
 
 	i = 1;
 	while (i++ < 3)
-		pb(stack_i, 1);
-	temp_b = stack_i->stack_b;
-	if (temp_b->content < temp_b->next->content)
-		sb(stack_i, 1);
-	sort_three(stack_i);
-	temp_a = stack_i->stack_a;
-	while (temp_b != NULL)
 	{
-		if (temp_b->content > temp_a->content)
-			stack_i->steps[TOP] += 1;
-		if (temp_a->next == NULL)
-			temp_a = stack_i->stack_a;
-		temp_a = temp_a->next;
+		check_min(stack_i);
+		if (stack_i -> steps[TOP] < stack_i -> steps[BOTTOM])
+			push_top(stack_i);
+		else
+			push_bottom(stack_i);
+		pb(stack_i, 1);
+		stack_i -> steps[TOP] = 0;
+		stack_i -> steps[BOTTOM] = 0;
 	}
+	sort_three(stack_i);
+	while (stack_i -> stack_b != NULL)
+		pa(stack_i, 1);
 }
