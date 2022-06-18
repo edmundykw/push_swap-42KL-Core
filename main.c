@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:07:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 22:03:59 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/19 00:23:39 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,6 @@ int	main(int argc, char **argv)
 	}
 	init_stack(&stack_i);
 	push_swap(&stack_i);
+	free_mem(&stack_i);
+	ft_lstclear(&stack_i.stack_a);
 }
