@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/18 22:01:07 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/19 00:10:33 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	sort_three(t_stack_info *stack_i);
 void	sort_five(t_stack_info *stack_i);
 
 /* stack_ops.c */
-void	push_top(t_stack_info *stack_i);
-void	push_bottom(t_stack_info *stack_i);
+void	push_top(t_stack_info *stack_i,
+			int (*f)(t_stack_info *s, int i), int j);
+void	push_bot(t_stack_info *stack_i,
+			int (*f)(t_stack_info *s, int i), int j);
 #endif

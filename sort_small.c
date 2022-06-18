@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:06:28 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/18 22:02:37 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/19 00:10:41 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	sort_three(t_stack_info *stack_i)
 {
-	t_list	*temp;
 	int		n1;
 	int		n2;
 	int		n3;
 
-	temp = stack_i->stack_a;
-	n1 = temp->content;
-	n2 = temp->next->content;
-	n3 = temp->next->next->content;
+	n1 = stack_i -> stack_a -> content;
+	n2 = stack_i -> stack_a -> next -> content;
+	n3 = stack_i -> stack_a -> next -> next -> content;
 	if (n1 > n2 && n2 < n3 && n3 > n1)
 		sa(stack_i, 1);
 	else if (n1 > n2 && n2 > n3 && n1 > n3)
@@ -39,6 +37,8 @@ void	sort_three(t_stack_info *stack_i)
 	}
 	else if (n1 < n2 && n2 > n3 && n1 > n3)
 		rra(stack_i, 1);
+	else
+		return ;
 }
 
 void	sort_five(t_stack_info *stack_i)
@@ -50,9 +50,9 @@ void	sort_five(t_stack_info *stack_i)
 	{
 		check_min(stack_i);
 		if (stack_i -> steps[TOP] < stack_i -> steps[BOTTOM])
-			push_top(stack_i);
+			push_top(stack_i, ra, 1);
 		else
-			push_bottom(stack_i);
+			push_bot(stack_i, rra, 1);
 		pb(stack_i, 1);
 		stack_i -> steps[TOP] = 0;
 		stack_i -> steps[BOTTOM] = 0;
