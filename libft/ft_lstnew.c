@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 19:25:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2021/11/20 19:35:40 by ekeen-wy         ###   ########.fr       */
+/*   Created: 2021/11/23 20:32:07 by ekeen-wy          #+#    #+#             */
+/*   Updated: 2022/06/19 22:06:55 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+/* creates a new node */
+
+t_list	*ft_lstnew(int content)
 {
-	write(fd, &c, 1);
+	t_list	*node;
+
+	node = (t_list *)malloc(sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node -> content = content;
+	node -> tail = NO;
+	node -> next = NULL;
+	return (node);
 }

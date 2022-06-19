@@ -6,29 +6,18 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/19 00:10:33 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/19 22:24:11 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
 # include <fcntl.h>
-# include <stdlib.h>
-# include <limits.h>
 # include "libft/libft.h"
-# include <stdio.h>
-# define YES 1
-# define NO 0
+# include <stdio.h> /* to remove this */
 # define TOP 0
 # define BOTTOM 1
-
-typedef struct d_linked_list {
-	int						content;
-	int						tail;
-	struct d_linked_list	*next;
-}	t_list;
 
 typedef struct stack {
 	int		counter_a;
@@ -61,16 +50,11 @@ int		rrb(t_stack_info *stack_info, int show);
 int		rrr(t_stack_info *stack_info, int show);
 
 /* utils_1.c */
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstseclast(t_list *lst);
-t_list	*ft_lstnew(int content);
-
-/* utils_2.c */
-void	ft_lstclear(t_list **lst);
 void	free_mem(t_stack_info *stack_i);
 void	check_min(t_stack_info *stack_i);
+
+/* utils_2.c */
 
 /* error_check.c */
 void	p_error(int code);
@@ -86,6 +70,9 @@ void	push_swap(t_stack_info *stack_i);
 /* sort_small.c */
 void	sort_three(t_stack_info *stack_i);
 void	sort_five(t_stack_info *stack_i);
+
+/* sort_big.c */
+void	sort_big(t_stack_info *stack_i, int part);
 
 /* stack_ops.c */
 void	push_top(t_stack_info *stack_i,

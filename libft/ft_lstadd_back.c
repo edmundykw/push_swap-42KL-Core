@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 10:18:24 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2021/11/29 17:08:48 by ekeen-wy         ###   ########.fr       */
+/*   Created: 2021/11/24 16:58:03 by ekeen-wy          #+#    #+#             */
+/*   Updated: 2022/06/19 22:10:24 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char	*ptr;
+/* places the node at the end of the linked list */
 
-	ptr = dest;
-	if (dest == src)
-		return (dest);
-	while (n-- != 0)
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*ptr;
+
+	if (*lst == NULL)
 	{
-		*ptr = *(unsigned char *) src;
-		ptr++;
-		src++;
+		*lst = new;
+		new -> next = NULL;
 	}
-	return (dest);
+	else
+	{
+		ptr = ft_lstlast(*lst);
+		ptr -> next = new;
+		new -> next = NULL;
+	}
 }

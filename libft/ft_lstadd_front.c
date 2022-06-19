@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 20:02:42 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2021/11/20 20:05:15 by ekeen-wy         ###   ########.fr       */
+/*   Created: 2021/11/23 22:07:28 by ekeen-wy          #+#    #+#             */
+/*   Updated: 2022/06/19 22:05:28 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
-{
-	unsigned int	len;
+/* places the ith node at the front of the node specified */
 
-	if (s == NULL)
-		return ;
-	len = ft_strlen(s);
-	write(fd, s, len);
-	write(fd, "\n", 1);
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new -> next = *lst;
+	*lst = new;
 }
