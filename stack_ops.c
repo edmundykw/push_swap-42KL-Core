@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:58:45 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 14:33:22 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 18:40:49 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_top(t_stack_info *stack_i, int (*f)(t_stack_info *s, int i), int j)
 {
-	while (stack_i -> steps[TOP] - 1 > 0)
+	while (stack_i -> steps[TOP] > 0)
 	{
 		(*f)(stack_i, j);
 		stack_i -> steps[TOP]--;
@@ -30,29 +30,48 @@ void	push_bot(t_stack_info *stack_i, int (*f)(t_stack_info *s, int i), int j)
 	}
 }
 
-void	find_from_top(t_stack_info *stack_i, t_list *s, int pivot)
+void	find_from_top_a(t_stack_info *stack_i, t_list *s, int pivot)
 {
 	size_t	i;
 	size_t	size;	
 	t_list	*temp;
 
-	i = 1;
+	i = 0;
 	size = ft_lstsize(s);
 	temp = s;
 	while (temp != NULL)
 	{
-		stack_i -> steps[TOP] += 1;
-		if (temp -> content < pivot)
-			return ;
-		else if (temp -> content == pivot)
-		{
-			temp -> tail = YES;
-			return ;
-		}
+		stack_i -> steps[TOP] = i;
+		if (temp -> content <= pivot)
+			break ;
 		temp = temp -> next;
 		i++;
 	}
-	if (i > size)
+	if (i == size)
+	{
+		stack_i -> steps[TOP] = 0;
+		stack_i -> steps[BOTTOM] = 0;
+	}
+}
+
+void	find_from_top_b(t_stack_info *stack_i, t_list *s, int pivot)
+{
+	size_t	i;
+	size_t	size;	
+	t_list	*temp;
+
+	i = 0;
+	size = ft_lstsize(s);
+	temp = s;
+	while (temp != NULL)
+	{
+		stack_i -> steps[TOP] = i;
+		if (temp -> content == pivot)
+			break ;
+		temp = temp -> next;
+		i++;
+	}
+	if (i == size)
 	{
 		stack_i -> steps[TOP] = 0;
 		stack_i -> steps[BOTTOM] = 0;
@@ -72,24 +91,21 @@ void	find_from_bot(t_stack_info *stack_i, t_list *s, int pivot)
 	size_t	size;
 	size_t	i;
 
-	size = ft_lstsize(stack_i -> stack_a);
+	size = ft_lstsize(s);
 	temp = s;
 	i = 0;
-	while (temp != NULL && i++ < size)
+	while (temp != NULL)
 	{
 		if (temp -> content <= pivot)
 		{
-			if (temp -> content == pivot)
-				temp -> tail = YES;
 			stack_i -> target[ACT] = i;
 			stack_i -> target[YES] = 1;
 		}
 		temp = temp -> next;
+		i++;
 	}
 	if (stack_i -> steps[TOP] == 0 && stack_i -> target[YES] == 0)
 		stack_i -> steps[BOTTOM] = 0;
-	else if (stack_i -> target[YES])
-		stack_i -> steps[BOTTOM] = size - stack_i -> target[ACT] + 1;
 	else
-		stack_i -> steps[BOTTOM] = size - stack_i -> steps[TOP] + 1;
+		stack_i -> steps[BOTTOM] = size - stack_i -> steps[TOP];
 }

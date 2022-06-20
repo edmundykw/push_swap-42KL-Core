@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:06:28 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 11:14:20 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 17:39:17 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	sort_three(t_stack_info *stack_i)
 		return ;
 }
 
-void	sort_five(t_stack_info *stack_i)
+void	sort_five(t_stack_info *stack_i, int size)
 {
 	size_t	i;
 
 	i = 1;
-	while (i++ < 3)
+	while (i++ < size - 2)
 	{
 		check_min(stack_i);
 		rotate_a(stack_i);

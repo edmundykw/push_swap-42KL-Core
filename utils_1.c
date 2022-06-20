@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:13:08 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 14:56:24 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 15:42:52 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,29 @@ void	free_mem(t_stack_info *stack_i)
 
 void	check_min(t_stack_info *stack_i)
 {
-	int		*min;
 	size_t	i;
+	size_t	acts;
 	t_list	*temp;
 
-	min = stack_i -> array_sorted;
 	i = 0;
 	while (i < stack_i -> array_size - 1)
 	{
 		temp = stack_i -> stack_a;
 		stack_i -> steps[TOP] = 0;
+		acts = 0;
 		while (temp != NULL)
 		{
-			stack_i -> steps[TOP] += 1;
-			if (min[i] == temp -> content)
+			if (stack_i -> array_sorted[i] == temp -> content)
 			{
+				stack_i -> steps[TOP] = acts;
 				i = stack_i -> array_size;
 				break ;
 			}
 			temp = temp -> next;
+			acts++;
 		}
 		i++;
 	}
 	stack_i -> steps[BOTTOM] = ft_lstsize(stack_i -> stack_a)
-		- stack_i -> steps[TOP] + 1;
+		- stack_i -> steps[TOP];
 }

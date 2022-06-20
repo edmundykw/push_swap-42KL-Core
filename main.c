@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:07:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 14:18:38 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 19:05:15 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int	main(int argc, char **argv)
 	t_stack_info	stack_i;
 	size_t			i;
 
+	if (argc == 1)
+		return (0);
 	if (argc < 2)
 		p_error(0);
 	init_array(&stack_i, argc);

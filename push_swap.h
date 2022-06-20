@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 14:17:35 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 18:39:43 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	push_swap(t_stack_info *stack_i);
 
 /* sort_small.c */
 void	sort_three(t_stack_info *stack_i);
-void	sort_five(t_stack_info *stack_i);
+void	sort_five(t_stack_info *stack_i, int size);
 
 /* sort_big.c */
 void	sort_big(t_stack_info *stack_i, int part);
@@ -80,7 +80,8 @@ void	push_top(t_stack_info *stack_i,
 			int (*f)(t_stack_info *s, int i), int j);
 void	push_bot(t_stack_info *stack_i,
 			int (*f)(t_stack_info *s, int i), int j);
-void	find_from_top(t_stack_info *stack_i, t_list *s, int pivot);
+void	find_from_top_a(t_stack_info *stack_i, t_list *s, int pivot);
+void	find_from_top_b(t_stack_info *stack_i, t_list *s, int pivot);
 void	find_from_bot(t_stack_info *stack_i, t_list *s, int pivot);
 
 /* rotate_stack.c */
