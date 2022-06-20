@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:09:38 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/17 11:38:43 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 20:37:02 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	swap(int *i, int *j)
 
 int	bubblesort(int *arr, size_t size)
 {
-	int		i;
-	int		j;
-	int		swapped;
+	size_t		i;
+	size_t		j;
+	int			swapped;
 
 	i = 0;
 	swapped = 0;

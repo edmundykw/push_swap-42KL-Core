@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 22:56:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 18:40:33 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 20:37:57 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ static int	get_pivot(t_stack_info *stack_i, int idx)
 static void	push_to_b(t_stack_info *stack_i, int pivot)
 {
 	int	*arr;
-	int	i;
 
 	arr = stack_i -> steps;
-	i = 1;
 	while (stack_i -> stack_a != NULL)
 	{
 		find_from_top_a(stack_i, stack_i -> stack_a, pivot);

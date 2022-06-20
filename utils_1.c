@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:13:08 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 15:42:52 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 20:39:58 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	check_min(t_stack_info *stack_i)
 	t_list	*temp;
 
 	i = 0;
-	while (i < stack_i -> array_size - 1)
+	while (i < (size_t) stack_i -> array_size - 1)
 	{
 		temp = stack_i -> stack_a;
 		stack_i -> steps[TOP] = 0;

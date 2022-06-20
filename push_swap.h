@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 18:39:43 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:43:31 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <fcntl.h>
 # include "libft/libft.h"
-# include <stdio.h> /* to remove this */
 # define TOP 0
 # define BOTTOM 1
 # define ACT 0
@@ -54,8 +53,6 @@ int		rrr(t_stack_info *stack_info, int show);
 t_list	*ft_lstseclast(t_list *lst);
 void	free_mem(t_stack_info *stack_i);
 void	check_min(t_stack_info *stack_i);
-
-/* utils_2.c */
 
 /* error_check.c */
 void	p_error(int code);

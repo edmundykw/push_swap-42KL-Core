@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:07:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 19:05:15 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 20:36:33 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ static void	process_input(t_stack_info *stack_i, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack_info	stack_i;
-	size_t			i;
 
 	if (argc == 1)
 		return (0);

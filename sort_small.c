@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:06:28 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 17:39:17 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:40:05 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	sort_three(t_stack_info *stack_i)
 
 void	sort_five(t_stack_info *stack_i, int size)
 {
-	size_t	i;
+	int	i;
 
 	i = 1;
 	while (i++ < size - 2)
