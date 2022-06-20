@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/19 22:24:11 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 14:17:35 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 # include <stdio.h> /* to remove this */
 # define TOP 0
 # define BOTTOM 1
+# define ACT 0
+# define YES 1
 
 typedef struct stack {
-	int		counter_a;
-	int		counter_b;
 	int		*array_in;
 	int		*array_sorted;
 	int		array_size;
 	int		steps[2];
+	int		target[2];
 	t_list	*stack_a;
 	t_list	*stack_b;
 }	t_stack_info;
@@ -79,4 +80,10 @@ void	push_top(t_stack_info *stack_i,
 			int (*f)(t_stack_info *s, int i), int j);
 void	push_bot(t_stack_info *stack_i,
 			int (*f)(t_stack_info *s, int i), int j);
+void	find_from_top(t_stack_info *stack_i, t_list *s, int pivot);
+void	find_from_bot(t_stack_info *stack_i, t_list *s, int pivot);
+
+/* rotate_stack.c */
+void	rotate_a(t_stack_info *stack_i);
+void	rotate_b(t_stack_info *stack_i);
 #endif

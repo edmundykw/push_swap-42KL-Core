@@ -6,7 +6,7 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:07:01 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/19 00:23:39 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/20 14:18:38 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,23 @@ static void	init_stack(t_stack_info *stack_i)
 	int		temp;
 	t_list	*new;
 
-	stack_i->counter_a = 0;
-	stack_i->counter_b = 0;
-	stack_i->stack_a = NULL;
-	stack_i->stack_b = NULL;
-	stack_i->steps[TOP] = 0;
-	stack_i->steps[BOTTOM] = 0;
+	stack_i -> stack_a = NULL;
+	stack_i -> stack_b = NULL;
+	stack_i -> target[ACT] = 0;
+	stack_i -> target[YES] = 0;
+	stack_i -> steps[TOP] = 0;
+	stack_i -> steps[BOTTOM] = 0;
 	temp = 0;
 	while (temp < stack_i->array_size)
 	{
-		new = ft_lstnew(stack_i->array_in[temp++]);
+		new = ft_lstnew(stack_i -> array_in[temp++]);
 		if (new == NULL)
 		{
 			free_mem(stack_i);
-			ft_lstclear(&stack_i->stack_a);
+			ft_lstclear(&stack_i -> stack_a);
 			p_error(1);
 		}
-		ft_lstadd_back(&stack_i->stack_a, new);
+		ft_lstadd_back(&stack_i -> stack_a, new);
 	}
 }
 
