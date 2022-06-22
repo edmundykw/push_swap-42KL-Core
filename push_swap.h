@@ -6,14 +6,13 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:08:20 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 21:43:31 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/22 15:18:04 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <fcntl.h>
 # include "libft/libft.h"
 # define TOP 0
 # define BOTTOM 1
@@ -50,14 +49,19 @@ int		rrb(t_stack_info *stack_info, int show);
 int		rrr(t_stack_info *stack_info, int show);
 
 /* utils_1.c */
-t_list	*ft_lstseclast(t_list *lst);
 void	free_mem(t_stack_info *stack_i);
 void	check_min(t_stack_info *stack_i);
 
-/* error_check.c */
-void	p_error(int code);
+/* ops_array.c */
+int		*create_array(int n);
+void	init_array(t_stack_info *stack_i, int argc);
+
+/* process_input.c */
+void	p_error(char *str);
 int		isnumber(char *str);
 int		isdup(int *n, size_t len);
+void	check_input(char **argv);
+void	convert_input(t_stack_info *stack_i, int argc, char **argv);
 
 /* bubblesort.c */
 int		bubblesort(int *arr, size_t size);

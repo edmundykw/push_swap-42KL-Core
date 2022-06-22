@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr_ab_ops.c                                        :+:      :+:    :+:   */
+/*   ops_rr_ab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:13:56 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/16 18:10:08 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/22 14:17:33 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* finds the second last node in the linked list */
+
+static t_list	*ft_lstseclast(t_list *lst)
+{
+	t_list	*ptr;
+
+	ptr = lst;
+	while (ptr != NULL)
+	{
+		if (ptr -> next -> next == NULL)
+			return (ptr);
+		ptr = ptr -> next;
+	}
+	return (ptr);
+}
 
 /* Shift down all elements of stack a by 1.
 The last element becomes the first one. */

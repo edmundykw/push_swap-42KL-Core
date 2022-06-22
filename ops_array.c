@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ops_array.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 20:32:07 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/22 14:27:46 by ekeen-wy         ###   ########.fr       */
+/*   Created: 2022/06/22 14:59:35 by ekeen-wy          #+#    #+#             */
+/*   Updated: 2022/06/22 15:00:10 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-/* creates a new node */
-
-t_list	*ft_lstnew(int content)
+int	*create_array(int n)
 {
-	t_list	*node;
+	int	*copy;
 
-	node = (t_list *)malloc(sizeof(t_list));
-	if (node == NULL)
-		return (NULL);
-	node -> content = content;
-	node -> next = NULL;
-	return (node);
+	copy = (int *)malloc(sizeof(int) * n);
+	if (copy == NULL)
+		p_error("Malloc failed\n");
+	return (copy);
+}
+
+void	init_array(t_stack_info *stack_i, int argc)
+{
+	stack_i -> array_in = create_array(argc - 1);
+	stack_i -> array_sorted = create_array(argc - 1);
+	stack_i -> array_size = argc - 1;
 }

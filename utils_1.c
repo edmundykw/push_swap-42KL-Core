@@ -6,27 +6,11 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:13:08 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 20:39:58 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/22 14:16:53 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* finds the second last node in the linked list */
-
-t_list	*ft_lstseclast(t_list *lst)
-{
-	t_list	*ptr;
-
-	ptr = lst;
-	while (ptr != NULL)
-	{
-		if (ptr -> next -> next == NULL)
-			return (ptr);
-		ptr = ptr -> next;
-	}
-	return (ptr);
-}
 
 void	free_mem(t_stack_info *stack_i)
 {

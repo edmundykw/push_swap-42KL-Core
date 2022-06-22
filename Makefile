@@ -6,7 +6,7 @@
 #    By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 19:22:57 by ekeen-wy          #+#    #+#              #
-#    Updated: 2022/06/20 21:42:24 by ekeen-wy         ###   ########.fr        #
+#    Updated: 2022/06/22 15:08:21 by ekeen-wy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
 
 DEPS := push_swap.h
 
-SRC := main.c bubblesort.c error_check.c p_ops.c push_swap.c r_ab_ops.c \
-	rotate_stack.c rr_ab_ops.c s_ops.c sort_big.c sort_small.c stack_ops.c \
-	utils_1.c
+SRC := main.c bubblesort.c process_input.c ops_p.c push_swap.c ops_r_ab.c \
+	rotate_stack.c ops_rr_ab.c ops_s.c sort_big.c sort_small.c ops_stack.c \
+	utils_1.c ops_array.c
 
 OBJ := $(SRC:.c=.o)
 
