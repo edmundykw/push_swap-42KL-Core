@@ -6,11 +6,40 @@
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:06:28 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 21:40:05 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/22 17:21:15 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	check_min(t_stack_info *stack_i)
+{
+	size_t	i;
+	size_t	acts;
+	t_list	*temp;
+
+	i = 0;
+	while (i < (size_t) stack_i -> array_size - 1)
+	{
+		temp = stack_i -> stack_a;
+		stack_i -> steps[TOP] = 0;
+		acts = 0;
+		while (temp != NULL)
+		{
+			if (stack_i -> array_sorted[i] == temp -> content)
+			{
+				stack_i -> steps[TOP] = acts;
+				i = stack_i -> array_size;
+				break ;
+			}
+			temp = temp -> next;
+			acts++;
+		}
+		i++;
+	}
+	stack_i -> steps[BOTTOM] = ft_lstsize(stack_i -> stack_a)
+		- stack_i -> steps[TOP];
+}
 
 void	sort_three(t_stack_info *stack_i)
 {
@@ -49,7 +78,10 @@ void	sort_five(t_stack_info *stack_i, int size)
 	while (i++ < size - 2)
 	{
 		check_min(stack_i);
-		rotate_a(stack_i);
+		if (stack_i -> steps[TOP] < stack_i -> steps[BOTTOM])
+			rotate(stack_i, 0);
+		else
+			rotate(stack_i, 1);
 	}
 	sort_three(stack_i);
 	while (stack_i -> stack_b != NULL)

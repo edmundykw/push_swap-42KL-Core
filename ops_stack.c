@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_ops.c                                        :+:      :+:    :+:   */
+/*   ops_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:58:45 by ekeen-wy          #+#    #+#             */
-/*   Updated: 2022/06/20 18:40:49 by ekeen-wy         ###   ########.fr       */
+/*   Updated: 2022/06/22 17:09:00 by ekeen-wy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_top(t_stack_info *stack_i, int (*f)(t_stack_info *s, int i), int j)
+void	rotate_push(t_stack_info *stack_i,
+		int (*f)(t_stack_info *s, int i), char c)
 {
-	while (stack_i -> steps[TOP] > 0)
-	{
-		(*f)(stack_i, j);
-		stack_i -> steps[TOP]--;
-	}
+	int	count;
+
+	if (c == 't')
+		count = stack_i -> steps[TOP];
+	else
+		count = stack_i -> steps[BOTTOM];
+	while (count-- > 0)
+		(*f)(stack_i, 1);
 }
 
-void	push_bot(t_stack_info *stack_i, int (*f)(t_stack_info *s, int i), int j)
-{
-	while (stack_i -> steps[BOTTOM] > 0)
-	{
-		(*f)(stack_i, j);
-		stack_i -> steps[BOTTOM]--;
-	}
-}
-
-void	find_from_top_a(t_stack_info *stack_i, t_list *s, int pivot)
+void	find_from_top(t_stack_info *stack_i, t_list *s, int pivot, char c)
 {
 	size_t	i;
 	size_t	size;	
@@ -42,32 +37,12 @@ void	find_from_top_a(t_stack_info *stack_i, t_list *s, int pivot)
 	while (temp != NULL)
 	{
 		stack_i -> steps[TOP] = i;
-		if (temp -> content <= pivot)
-			break ;
-		temp = temp -> next;
-		i++;
-	}
-	if (i == size)
-	{
-		stack_i -> steps[TOP] = 0;
-		stack_i -> steps[BOTTOM] = 0;
-	}
-}
-
-void	find_from_top_b(t_stack_info *stack_i, t_list *s, int pivot)
-{
-	size_t	i;
-	size_t	size;	
-	t_list	*temp;
-
-	i = 0;
-	size = ft_lstsize(s);
-	temp = s;
-	while (temp != NULL)
-	{
-		stack_i -> steps[TOP] = i;
-		if (temp -> content == pivot)
-			break ;
+		if (c == 'a')
+			if (temp -> content <= pivot)
+				break ;
+		else if (c == 'b')
+			if (temp -> content == pivot)
+				break ;
 		temp = temp -> next;
 		i++;
 	}
@@ -108,4 +83,23 @@ void	find_from_bot(t_stack_info *stack_i, t_list *s, int pivot)
 		stack_i -> steps[BOTTOM] = 0;
 	else
 		stack_i -> steps[BOTTOM] = size - stack_i -> steps[TOP];
+}
+
+void	rotate(t_stack_info *stack_i, int i)
+{
+	static int	(*f_action[])(t_stack_info *stack_info, int show) = {
+		&ra, &rra, &rb, &rrb};
+
+	if (i == 0 || i == 2)
+		rotate_push(stack_i, f_action[i], 't');
+	else if (i == 1 || i == 3)
+		rotate_push(stack_i, f_action[i], 'b');
+	if (i < 2)
+		pb(stack_i, 1);
+	else
+		pa(stack_i, 1);
+	stack_i -> steps[TOP] = 0;
+	stack_i -> steps[BOTTOM] = 0;
+	stack_i -> target[ACT] = 0;
+	stack_i -> target[YES] = 0;
 }

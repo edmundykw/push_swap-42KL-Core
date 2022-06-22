@@ -6,7 +6,7 @@
 #    By: ekeen-wy <ekeen-wy@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 10:06:07 by ekeen-wy          #+#    #+#              #
-#    Updated: 2022/06/20 21:22:20 by ekeen-wy         ###   ########.fr        #
+#    Updated: 2022/06/22 17:33:23 by ekeen-wy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,15 @@ OBJ := $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(DEPS)
-	ar csr $@ $?
+	@ar csr $@ $?
 	@echo "libft compiled"
 
 fclean: clean 
-	rm -f $(NAME) 
+	@rm -f $(NAME)
+	@echo "removed libft!"
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 re: fclean all
 
